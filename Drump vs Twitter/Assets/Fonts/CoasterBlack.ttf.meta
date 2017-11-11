@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 4cb6d4f6e9118c041a77b160916760bf
+timeCreated: 1510422585
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Coaster
+  fontNames:
+  - Coaster
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
