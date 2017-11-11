@@ -1,2 +1,0 @@
-DIES IST EIN BEFEHL; 2ter Befehl;
-3ter Befehl;
