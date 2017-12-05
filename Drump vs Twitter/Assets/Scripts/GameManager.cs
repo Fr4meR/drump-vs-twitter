@@ -75,6 +75,9 @@ public class GameManager : Singleton<GameManager> {
 		}
 	}
 
+	/// <summary>
+	/// Spawns all the words.
+	/// </summary>
 	private void SpawnWords(){
 		for (int i = 0; i < 10; i++) {
 			createWordObject (TweetWordManager.Instance.GetRandomWord ());
@@ -92,17 +95,25 @@ public class GameManager : Singleton<GameManager> {
 		newWordObject.transform.localScale = new Vector3 (1f, 1f, 1f);
 		newWordObject.transform.position = new Vector3 (UnityEngine.Random.Range(-0.8f, 0.8f), UnityEngine.Random.Range(-0.8f, 0.8f), 0f);
 
+		Color buttonColor = Color.white;
 		switch (word.Phrase) {
 		case TweetWordPhrase.FILL:
-			newWordObject.GetComponent<CanvasRenderer> ().SetColor (Color.blue);
+			buttonColor = Color.blue;
 			break;
 		case TweetWordPhrase.VERB:
-			newWordObject.GetComponent<CanvasRenderer> ().SetColor (Color.green);
+			buttonColor = Color.green;
 			break;
 		case TweetWordPhrase.SUBJECT:
-			newWordObject.GetComponent<CanvasRenderer> ().SetColor (Color.red);
+			buttonColor = Color.red;
 			break;
 		}
+		newWordObject.GetComponent<CanvasRenderer> ().SetColor (buttonColor);
+		ColorBlock cb = newWordObject.GetComponent<Button> ().colors;
+		cb.normalColor = buttonColor;
+		cb.highlightedColor = new Color (buttonColor.r * 0.8f, buttonColor.g * 0.8f, buttonColor.b * 0.8f);
+		cb.pressedColor = new Color (buttonColor.r * 0.6f, buttonColor.g * 0.6f, buttonColor.b * 0.6f);
+		cb.disabledColor = Color.gray;
+		newWordObject.GetComponent<Button> ().colors = cb;
 
 		Text wordText = newWordObject.transform.Find ("WordText").GetComponent<Text>();
 		wordText.text = word.Word;
